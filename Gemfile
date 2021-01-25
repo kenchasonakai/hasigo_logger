@@ -7,7 +7,7 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
-gem 'slim'
+gem 'slim-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'mysql2'
 group :development, :test do
@@ -16,6 +16,7 @@ group :development, :test do
   gem 'rspec-rails'
 end
 group :development do
+  gem 'web-console'
   gem 'listen', '~> 3.2'
   gem 'html2slim'
   gem 'spring'
