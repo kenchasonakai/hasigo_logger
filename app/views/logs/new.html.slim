@@ -1,0 +1,28 @@
+p
+  |こんにちは
+  span#user_name
+  |さん
+button#get_location_button
+  |現在地を取得
+div style="display:none"
+  p#latitude
+    緯度表示
+  p#longitude
+    経度表示
+p#address
+  |現在地:
+label for="name"  店名：
+input#name name="name" type="text"
+button#submit 送信
+#result 結果表示欄だよ〜
+footer
+  button#logout_button
+    |logout
+
+sass:
+  .result-list
+    color: blue;
+    display: block;
+    background-color: #eee;
+    box-shadow: 0 0 0 2px #eee;
+    padding: 1em;
