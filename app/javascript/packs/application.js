@@ -6,7 +6,7 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
-//require("packs/log/liff-starter")
+require("packs/log/liff-starter")
 require("packs/log/grnv")
 
 

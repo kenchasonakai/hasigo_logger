@@ -1,5 +1,5 @@
-window.addEventListener('load', () => {
-  const logout_button = document.querySelector('#logout_button')
+window.addEventListener('DOMContentLoaded', () => {
+ // const logout_button = document.querySelector('#logout_button')
   const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   liff.init({
     liffId: "1655381466-modX62Ob"
@@ -20,4 +20,4 @@ window.addEventListener('load', () => {
     });
     fetch(request)
   })
- });
+});
