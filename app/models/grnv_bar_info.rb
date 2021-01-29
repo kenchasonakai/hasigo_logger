@@ -1,0 +1,2 @@
+class GrnvBarInfo < ApplicationRecord
+end

@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
         fetch(req)
         .then(response => response.json())
         .then(data => {
-          address.append(data.msg)
+          address.innerHTML = data.msg
         });
       })
     }
