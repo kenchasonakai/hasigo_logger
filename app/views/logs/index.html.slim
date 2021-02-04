@@ -1,0 +1,45 @@
+div#log_index
+
+javascript:
+  const sample = (id) => {
+    let elements = document.querySelectorAll(`.date-${id}`)
+    let i = 1
+    for(element of elements){
+      if(element.style.display == "none"){
+        element.style.display = "block"
+      }
+      else if(element.style.display == "block"){
+        element.style.display = "none"
+      }
+    }
+  }
+  fetch('/logs/return_logs_json')
+  .then(response => response.json())
+    .then(data => {
+      const logs = data.logs
+      console.log(logs)
+      const records = data.drank_ons
+      console.log(records)
+      const recordTemplate = (record) => {
+        let record_on = record.drank_on.split("-")
+        let year = record_on[0], month = record_on[1], day = record_on[2]
+        return `
+        <h2 class="record-drank_on" id="${record.drank_on}" onclick="sample(this.id)">${year}年${month}月${day}日の飲み歩き記録</h2>
+        ${logs.map(logTemplate).join("")}
+        `
+      }
+      const logTemplate = (log) => {
+        return `
+        <div class="log date-${log.drank_on}" style="border-bottom-style:dotted; display:none;">
+        <h2 class="log-name">${log.name}</h2>
+        <p>${"開店時間: " + log.opentime}</p>
+        <p>${"連絡先: " + log.tel}</p>
+        <p>${"住所: " + log.address}</p>
+        </div>
+      `}
+      document.getElementById("log_index").innerHTML = `
+        ${records.map(recordTemplate).join("")}
+        <h1 class="app-title">Bars (${logs.length} results)</h1>
+        <p class="footer">These ${logs.length} log were added recently. Check back soon for updates.</p>
+      `
+    })
