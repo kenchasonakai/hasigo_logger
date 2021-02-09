@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_124054) do
+ActiveRecord::Schema.define(version: 2021_01_29_134625) do
 
   create_table "grnv_bar_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "grnv_id"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2021_01_28_124054) do
     t.string "opentime"
     t.string "holiday"
     t.string "tel"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "user_id"
+    t.string "grnv_bar_info_id"
+    t.text "memo"
+    t.date "drank_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

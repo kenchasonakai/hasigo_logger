@@ -4,9 +4,8 @@ class CreateGrnvBarInfos < ActiveRecord::Migration[6.0]
       t.string :grnv_id
       t.string :address
       t.string :name
-      t.string :image
-      t.string :grnv_url
-      t.string :grnv_tel
+      t.text :image
+      t.text :grnv_url
       t.string :opentime
       t.string :holiday
       t.string :tel

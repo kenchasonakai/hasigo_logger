@@ -13,8 +13,8 @@ window.addEventListener('load', () => {
       let crd = data.coords
       let get_latitude = crd.latitude;
       let get_longitude = crd.longitude;
-      latitude.innerHTML = `$B0^EY(B${get_latitude}`
-      longitude.innerHTML = `$B7PEY(B${get_longitude}`
+      latitude.innerHTML = `${get_latitude}`
+      longitude.innerHTML = `${get_longitude}`
       let request = new Request(`https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=${get_latitude}&lon=${get_longitude}`)
       fetch(request)
       .then(response => response.json())
@@ -41,7 +41,7 @@ window.addEventListener('load', () => {
   }
 
   const error = () => {
-    console.log("$BDL?.$K<:GT$7$^$7$?(B")
+    console.log("通信に失敗しました")
   }
 
   const logRecord_success = () => {
@@ -49,7 +49,7 @@ window.addEventListener('load', () => {
       liff.sendMessages([
         {
         type: 'text',
-        text: '$B%m%0$NEPO?$,$G$-$^$7$?!*(B'
+        text: 'ログの登録ができました！'
         }
       ])
       .then(() => {
@@ -66,8 +66,8 @@ window.addEventListener('load', () => {
 
   const set_query = () => {
     let name = document.getElementById("name").value;
-    let latitude_query = latitude.textContent.replace('$B0^EY(B', '')
-    let longitude_query = longitude.textContent.replace('$B7PEY(B', '')
+    let latitude_query = latitude.textContent
+    let longitude_query = longitude.textContent
     let latitude_and_longitude_query = `&latitude=${latitude_query}&longitude=${longitude_query}&range=1&coordinates_mode=2`
     let hit_per_page = '&hit_per_page=10'
     let array = new Array();
@@ -105,9 +105,8 @@ window.addEventListener('load', () => {
         method: 'POST',
         body: body
     });
-    if (window.confirm(`${shopName}$B$GEPO?$7$^$9$+!)(B`)) {
+    if (window.confirm(`${shopName}を登録しますか？`)) {
       fetch(request).then(logRecord_success, error)
-      fileencoding=iso-2022-jp
     }
   }
 
