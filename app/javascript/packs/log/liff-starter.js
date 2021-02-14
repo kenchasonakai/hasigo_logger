@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
  // const logout_button = document.querySelector('#logout_button')
   const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   liff.init({
-    liffId: "1655381466-modX62Ob"
+    liffId: "1655667657-MYZ0lbZ4"
   })
   .then(() => {
     if (!liff.isLoggedIn()) {

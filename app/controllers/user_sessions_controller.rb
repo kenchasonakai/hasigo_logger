@@ -1,7 +1,7 @@
 class UserSessionsController < ApplicationController
   def create
     id = params[:idToken]
-    channelId = '1655381466'
+    channelId = '1655667657'
     return if session[:user_id]
     res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'),
                           {'id_token'=>id, 'client_id'=>channelId})

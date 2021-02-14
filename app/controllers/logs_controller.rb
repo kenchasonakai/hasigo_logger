@@ -7,6 +7,7 @@ class LogsController < ApplicationController
   #  @drank_ons = user.logs.select('logs.drank_on').distinct(:drank_on)
   #  @logs = user.logs.eager_load(:grnv_bar_info).select('logs.*, grnv_bar_infos.*')
   #  render :json => { logs: @logs, drank_ons: @drank_ons }
+  #  log = user.logs.eager_load(:grnv_bar_info).first
   end
   def create
     grnv_bar_info = GrnvBarInfo.find_by(grnv_id: params[:grnvId])
